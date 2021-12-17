@@ -28,7 +28,7 @@
                 <li><a href="#">Profile</a></li>
                 <li><a href="#">Log Out</a></li>
                 {% else %}
-                <li><a href="#">Log In</a></li>
+                <li><a href="{{ url_for('login') }}">Log In</a></li>
                 <li><a href="{{ url_for('register') }}">Register</a></li>
                 {% endif %}
                 <li><a href="#"><i class="fas fa-search"></i></a></li>
@@ -47,7 +47,7 @@
             <li><a href="#">Profile</a></li>
             <li><a href="#">Log Out</a></li>
             {% else %}
-            <li><a href="#">Log In</a></li>
+            <li><a href="{{ url_for('login') }}">Log In</a></li>
             <li><a href="{{ url_for('register') }}">Register</a></li>
             {% endif %}
             <li><a href="#"><i class="fas fa-search"></i></a></li>

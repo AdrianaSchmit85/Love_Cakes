@@ -22,7 +22,7 @@ mongo = PyMongo(app)
 @app.route("/get_Receipt")
 def get_Receipt():
     Receipt = list(mongo.db.Receipt.find())
-
+    
     return render_template("recipes.html", Receipt=Receipt)
 
 
@@ -97,6 +97,11 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
+
+@app.route("/add_recipe")
+def add_recipe():
+    return render_template("add_recipe.html")
 
 
 

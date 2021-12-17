@@ -1,12 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Manager</title>
-</head>
-<body>
+    <h2>I'm extending the base template!</h2>
     {% for item in Receipt%}
         {{ item.Title }}<br>
         {{ item.Prep_time }}<br>
@@ -18,5 +13,6 @@
         {{ item.Ingredients }}<br>
         {{ item.Instructions }}<br>
     {% endfor %}
-</body>
-</html>
+
+{% endblock %}
+

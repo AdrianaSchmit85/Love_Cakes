@@ -3,7 +3,7 @@
 
     <h2>I'm extending the base template!</h2>
       <!--{% for item in Receipt%}
-        {{ item.Title }}<br>
+        {{ item.Name }}<br>
         {{ item.Prep_time }}<br>
         {{ item.Cook_time }}<br>
         {{ item.Total_time }}<br>
@@ -15,35 +15,26 @@
     {% endfor %}-->
 
 
-    <div class="row">
-        {% for item in Recipe%}
-        <div>
-          <div class="card-content">
-          <h5>  {{ item.Name }}</h5>
-        </div>
-        <div class="col s12 m6">
-          <div class="card">
-              {% if item.Image %}
-                <div class="card-image">
-                  <img src="../static/media/{{ item.Image }}">
+
+    <div>
+   
+                 <div class="card-content">
+                      <p>{{ item.Description }} </p>
+                      <p>  {{ item.Prep_time }} </p>
+                      <p>{{ item.Cook_time }} </p>
+                      <p>  {{ item.Total_time }} </p>
+                      <p>{{ item.Description }} </p>
+                      <p>  {{ item.Ingredients }} </p>
+                      <p>  {{ item.Instructions }} </p>
+                    </div>
+                    <div>
+                      <p><em>by: {{ item.Added_by }}</em></p>
+                    </div>
+                  </div>
                 </div>
-              {% endif %}
-
-              <p>{{ item.Description }} </p>
-              <p>  {{ item.Prep_time }} </p>
-              <p>{{ item.Cook_time }} </p>
-              <p>  {{ item.Total_time }} </p>
-              <p>{{ item.Description }} </p>
-              <p>  {{ item.Ingredients | safe }}</p>
-              <p>  {{ item.Instructions | safe }}</p>
-            </div>
-            <div>
-              <p><em>by: {{ item.Added_by }}</em></p>
-
-            </div>
-        </div>
-        {% endfor %}
-
+                {% endfor %}
+              </div>
+                     
 
 {% endblock %}
 

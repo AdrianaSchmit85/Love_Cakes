@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,22 +10,58 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"  type="text/css">
     {% block styles %}
     {% endblock %}
-    <title>We Bake</title>
+    <title>Love Cakes</title>
 </head>
 <body>
+
+    
+	<header>
+        <!-- top navbar -->
+        <nav class="nav-extended text-shadow  red lighten-1">
+            <div class="nav-wrapper">
+              <a href="{{ url_for('get_Receipt') }}" class="brand-logo">We Bake</a>
+              <a href="#" data-target="mobile-demo"  class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
+              <ul class="right hide-on-med-and-down">
+                <li><a href="{{ url_for('get_Receipt') }}">Recipes</a></li>
+                {% if session.user %}
+                <li><a href="#">Add Recipe</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Log Out</a></li>
+                {% else %}
+                <li><a href="#">Log In</a></li>
+                <li><a href="#">Register</a></li>
+                {% endif %}
+                <li><a href="#"><i class="fas fa-search"></i></a></li>
+				</ul>
+			</div>
+		</nav>
+
+        <!-- mobile sidenav -->
+		<ul class="sidenav" id="mobile-demo">
+            <li><h4 class="center-align light-blue-text text-darken 4"> We Bake </h4></li>
+            <li><a href="{{ url_for('get_Receipt') }}">Home</a></li>
+            <li><a href="{{ url_for('get_Receipt') }}">Recipes</a></li>
+            
+            {% if session.user %}
+            <li><a href="#">Add Recipe</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Log Out</a></li>
+            {% else %}
+            <li><a href="#">Log In</a></li>
+            <li><a href="#">Register</a></li>
+            {% endif %}
+            <li><a href="#"><i class="fas fa-search"></i></a></li>
+		</ul>
+	</header>
 
     {% block content %}
     {% endblock %}
 
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" 
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="{{ url_for('static', filename='js/script.js') }}"></script>
-{% block scripts %}
-{% endblock %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    {% block scripts %}
+    {% endblock %}
 </body>
 </html>
-
-</body>
-</html> 

@@ -103,7 +103,7 @@ def logout():
 def add_recipe():
     if request.method == "POST":
         receipt = {
-            "Name ": request.form.get("Name"),
+            "Recipe.name ": request.form.get("Name"),
             "Image": request.form.get("Image"),
             "Prep_time": request.form.get("Prep_time"),
             "Cook_time": request.form.get("Cook_time"),

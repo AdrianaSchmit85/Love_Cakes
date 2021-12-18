@@ -49,16 +49,15 @@
       </div>
 
 
-             
-
 {% endblock %}
 {% block scripts %}
-<script>
-    function deleteRecipe(id){
-        var confirm = window.confirm("Delete?")
-        if(confirm){
-            window.location.href = `/delete-recipe/${id}`;
-        }
-    }
-</script>
-{% endblock %}
+      <script>
+          function deleteRecipe(id){
+              var confirm = window.confirm("Delete?")
+              if(confirm){
+                  window.location.href = `/delete-recipe/${id}`;
+              }
+          }
+      </script>
+{% endblock %}            
+

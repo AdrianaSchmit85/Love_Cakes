@@ -150,6 +150,19 @@ def add_recipe(id=None):
     return render_template("add_recipe.html", Recipe=None)
 
 
+@app.route("/recipe/<id>", methods=["GET"])
+def get_recipe(id):
+    Recipe = mongo.db.Receipt.find_one({"_id": ObjectId(id)})
+    return render_template("recipe.html", Recipe=Recipe)
+
+@app.route("/delete-recipe/<id>", methods=["GET"])
+def delete_recipe(id):
+    mongo.db.Receipt.delete_one({'_id': ObjectId(id)})
+
+    flash("Recipe Successfully Deleted")
+    return redirect(url_for("get_recipes"))
+    
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

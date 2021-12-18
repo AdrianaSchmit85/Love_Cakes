@@ -155,6 +155,7 @@ def get_recipe(id):
     Recipe = mongo.db.Receipt.find_one({"_id": ObjectId(id)})
     return render_template("recipe.html", Recipe=Recipe)
 
+
 @app.route("/delete-recipe/<id>", methods=["GET"])
 def delete_recipe(id):
     mongo.db.Receipt.delete_one({'_id': ObjectId(id)})
@@ -179,7 +180,7 @@ def saveLocalImage(request):
         pass
 
     return None
-    
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

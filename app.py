@@ -1,4 +1,9 @@
 import os
+
+from werkzeug.utils import secure_filename
+from os.path import join, dirname, realpath
+from datetime import datetime
+
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -8,22 +13,28 @@ from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
-
 app = Flask(__name__)
 
-app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
-app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
-app.secret_key = os.environ.get("SECRET_KEY")
+app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME") 
+app.config["MONGO_URI"] = os.environ.get("MONGO_URI") 
+app.secret_key = os.environ.get("SECRET_KEY") 
+
+UPLOADS_PATH = join(dirname(realpath(__file__)), 'static/media')
 
 mongo = PyMongo(app)
 
-
 @app.route("/")
-@app.route("/get_Receipt")
-def get_Receipt():
-    Receipt = list(mongo.db.Receipt.find())
-    
-    return render_template("recipes.html", Receipt=Receipt)
+@app.route("/recipes")
+def get_recipes():
+    Recipe = list(mongo.db.Receipt.find())
+
+    return render_template("recipes.html", Recipe=Recipe)
+
+
+@app.route("/home")
+def home():
+    # return redirect(url_for("home"))
+    return render_template("home.html")
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -99,12 +110,14 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_receipt", methods=["GET", "POST"])
-def add_recipe():
+@app.route("/add-recipe", methods=["GET", "POST"])
+@app.route("/edit-recipe/<id>", methods=["GET", "POST"])
+def add_recipe(id=None):
     if request.method == "POST":
-        receipt = {
-            "Recipe.name ": request.form.get("Name"),
-            "Image": request.form.get("Image"),
+        image = saveLocalImage(request)
+
+        recipe = {
+            "Name ": request.form.get("Name"),
             "Prep_time": request.form.get("Prep_time"),
             "Cook_time": request.form.get("Cook_time"),
             "Total_time": request.form.get("Total_time"),
@@ -113,12 +126,28 @@ def add_recipe():
             "Instructions": request.form.get("Instructions"),
             "created_by": session["user"]
         }
-        mongo.db.Receipt.insert_one(receipt)
-        flash("Recipe Successfully Added")
-        return redirect(url_for("get_Receipt"))
 
-    return render_template("add_recipe.html")
+        if image:
+            recipe.update({"Image": image})
 
+        if id:
+            mongo.db.Receipt.find_one_and_update({"_id": ObjectId(id)}, {"$set": recipe})
+            flash("Recipe Successfully Updated")
+        else:
+            mongo.db.Receipt.insert_one(recipe)
+            flash("Recipe Successfully Added")
+        return redirect(url_for("get_recipes"))
+
+    if id:
+        Recipe = mongo.db.Receipt.find_one({"_id": ObjectId(id)})
+
+        if Recipe['created_by'] == session["user"] or Recipe['Added_by'] == session["user"]:
+            return render_template("add_recipe.html", Recipe=Recipe)
+
+        flash("You can only edit your recepes")
+        return redirect(url_for("get_recipes"))
+
+    return render_template("add_recipe.html", Recipe=None)
 
 
 if __name__ == "__main__":

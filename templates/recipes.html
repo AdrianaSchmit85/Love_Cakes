@@ -1,40 +1,64 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h2>I'm extending the base template!</h2>
-      <!--{% for item in Receipt%}
-        {{ item.Name }}<br>
-        {{ item.Prep_time }}<br>
-        {{ item.Cook_time }}<br>
-        {{ item.Total_time }}<br>
-        {{ item.Image }}<br>
-        {{ item.Ratings }}<br>
-        {{ item.Description }}<br>
-        {{ item.Ingredients }}<br>
-        {{ item.Instructions }}<br>
-    {% endfor %}-->
-
-
-
-    <div>
-   
-                 <div class="card-content">
-                      <p>{{ item.Description }} </p>
-                      <p>  {{ item.Prep_time }} </p>
-                      <p>{{ item.Cook_time }} </p>
-                      <p>  {{ item.Total_time }} </p>
-                      <p>{{ item.Description }} </p>
-                      <p>  {{ item.Ingredients }} </p>
-                      <p>  {{ item.Instructions }} </p>
-                    </div>
-                    <div>
-                      <p><em>by: {{ item.Added_by }}</em></p>
-                    </div>
-                  </div>
+    <div class="row" id="recipes-page">
+        {% for item in Recipe%}
+        <div>
+          <div class="card-content">
+          <h5>  {{ item.Name }}</h5>
+        </div>
+        <div class="col s12 m12">
+          <div class="card">
+              {% if item.Image %}
+                <div class="card-image">
+                  <img src="../static/media/{{ item.Image }}">
                 </div>
-                {% endfor %}
+              {% endif %}
+
+              <div class="content">
+                  <p>{{ item.Description }} </p>
+                  <p>  {{ item.Prep_time }} </p>
+                  <p>{{ item.Cook_time }} </p>
+                  <p>  {{ item.Total_time }} </p>
+                  <p>{{ item.Description }} </p>
+                  <p>  {{ item.Ingredients | safe }}</p>
+                  <p>  {{ item.Instructions | safe }}</p>
               </div>
-                     
+            </div>
+            <div>
+              <p>
+                  {% if item.created_by %}
+                  <em>by: {{ item.created_by }}</em>
+                  {% else %}
+                  <em>by: {{ item.Added_by }}</em>
+                  {% endif %}
+              </p>
+
+            {% if session["user"] %}
+              {% if item.created_by == session["user"] or item.Added_by == session["user"] %}
+              <a class="waves-effect waves-light btn-small" href="/edit-recipe/{{ item._id }}">Edit</a>
+              <button class="waves-effect waves-light btn-small red" onclick="deleteRecipe('{{ item._id }}')">Delete</button>
+              {% endif %}
+              <a class="waves-effect waves-light btn-small blue" href="/recipe/{{ item._id }}">See more</a>
+            {% endif %}
+            </div>
+           
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+
+             
 
 {% endblock %}
-
+{% block scripts %}
+<script>
+    function deleteRecipe(id){
+        var confirm = window.confirm("Delete?")
+        if(confirm){
+            window.location.href = `/delete-recipe/${id}`;
+        }
+    }
+</script>
+{% endblock %}

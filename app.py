@@ -161,6 +161,24 @@ def delete_recipe(id):
 
     flash("Recipe Successfully Deleted")
     return redirect(url_for("get_recipes"))
+
+
+def saveLocalImage(request):
+    try:
+        if len(request.files) > 0:
+            if request.files['image'].filename != '':
+                image = request.files['image']
+
+                newName = secure_filename(f'{datetime.now().strftime("%m_%d_%Y_%H_%M_%S_%f")}_{image.filename}')
+
+                finalPath = os.path.join(UPLOADS_PATH, newName)
+                image.save(finalPath)
+
+                return newName
+    except:
+        pass
+
+    return None
     
 
 if __name__ == "__main__":

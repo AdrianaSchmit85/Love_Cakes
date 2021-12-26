@@ -15,9 +15,10 @@ if os.path.exists("env.py"):
 
 app = Flask(__name__)
 
-app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME") 
-app.config["MONGO_URI"] = os.environ.get("MONGO_URI") 
-app.secret_key = os.environ.get("SECRET_KEY") 
+
+app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME") # DeliciousCakeDB
+app.config["MONGO_URI"] = os.environ.get("MONGO_URI") # mongodb+srv://DeliciousCake:lH3RiwoCnCmW@Cluster0.rb65l.mongodb.net/DeliciousCakeDB
+app.secret_key = os.environ.get("SECRET_KEY") # MzB3ruEnw42NRtst6c6Fx897HZlxkqsj
 
 UPLOADS_PATH = join(dirname(realpath(__file__)), 'static/media')
 
@@ -149,12 +150,10 @@ def add_recipe(id=None):
 
     return render_template("add_recipe.html", Recipe=None)
 
-
 @app.route("/recipe/<id>", methods=["GET"])
 def get_recipe(id):
     Recipe = mongo.db.Receipt.find_one({"_id": ObjectId(id)})
     return render_template("recipe.html", Recipe=Recipe)
-
 
 @app.route("/delete-recipe/<id>", methods=["GET"])
 def delete_recipe(id):
@@ -162,7 +161,6 @@ def delete_recipe(id):
 
     flash("Recipe Successfully Deleted")
     return redirect(url_for("get_recipes"))
-
 
 def saveLocalImage(request):
     try:
@@ -180,7 +178,6 @@ def saveLocalImage(request):
         pass
 
     return None
-
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

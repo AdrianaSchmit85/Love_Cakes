@@ -14,16 +14,7 @@
 
     <div class="row card-panel green lighten-5">
         <form class="col s12"  method="POST" action="" id="submitRec" enctype="multipart/form-data">
-           <!-- Recipe Name -->
-           <div class="row">
-              <div class="input-field col s12">
-                 <i class="material-icons prefix"></i>
-                <textarea id="Name" name="Name" class="materialize-textarea">
-                         {% if Recipe.Name %}{{ Recipe.Name }}{% endif %}
-                </textarea>
 
-                 <label for="Recipe_name">Recipe Name</label>
-              </div>
               <!-- Image -->
               <div class="file-field input-field col s12">
                  <div class="btn">
@@ -34,6 +25,18 @@
                     <input class="file-path validate" name="image"  type="text">
                  </div>
               </div>
+
+                         <!-- Recipe Name -->
+           <div class="row">
+            <div class="input-field col s12">
+               <i class="material-icons prefix"></i>
+              <textarea id="Name" name="Name" class="materialize-textarea">
+                       {% if Recipe.Name %}{{ Recipe.Name }}{% endif %} 
+              </textarea>
+
+               <label for="Name">Recipe Name</label>
+
+            </div> 
               <!-- Description -->
               <div class="row">
                  <div class="input-field col s12">
@@ -41,24 +44,25 @@
                     <textarea id="Description" name="Description" class="materialize-textarea">
                          {% if Recipe.Description %}{{ Recipe.Description }}{% endif %}
                     </textarea>
-                    <label for="Recipe_name">Description</label>
+                    <label for="Description">Description</label>
                  </div>
                  <!-- Cooking Time -->
               </div>
               <div class="input-field col s4">
                  <i class="material-icons prefix"></i>
                  <input id="Prep Time" name="Prep_time" type="text" class="validate"  value="{% if Recipe.Prep_time %}{{ Recipe.Prep_time }}{% endif %}">
-                 <label for="icon_prefix">Prep Time</label>
+                 <label class="active" for="Prep Time">Prep Time</label>
               </div>
               <div class="input-field col s4">
                  <i class="material-icons prefix"></i>
                  <input id="Cook Time" name="Cook_time" type="text" class="validate"  value="{% if Recipe.Cook_time %}{{ Recipe.Cook_time }}{% endif %}">
-                 <label for="icon_telephone">Cook Time</label>
+                 <label  class="active" for="Cook_time">Cook Time</label>
               </div>
               <div class="input-field col s4">
                  <i class="material-icons prefix"></i>
+                 <label   class="active" for="Total_time">Total Time</label>
                  <input id="Total Time" name="Total_time" type="text" class="validate"  value="{% if Recipe.Total_time %}{{ Recipe.Total_time }}{% endif %}">
-                 <label for="icon_telephone">Total Time</label>
+                
               </div>
               <!-- Ingredients -->
               <div class="row">

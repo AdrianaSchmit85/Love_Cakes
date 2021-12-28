@@ -1,83 +1,91 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" 
-        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer"  type="text/css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"  type="text/css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"  type="text/css">
-    {% block styles %}
-    {% endblock %}
-    <title>We Bake</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    type="text/css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+
+  {% block styles %}
+  {% endblock %}
+  <title>We Bake</title>
 </head>
+
 <body>
 
-    <header>
-  <!-- top navbar -->
+  <header>
+    <!-- top navbar -->
 
-  <nav class="nav-extended text-shadow  red lighten-1">
+    <nav class="nav-extended text-shadow  red lighten-1">
 
-    <div class="nav-wrapper">
-      <a href="{{ url_for('home') }}" class="brand-logo">We Bake</a>
-      <a href="#" data-target="mobile-demo"  class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="{{ url_for('get_recipes') }}">Recipes</a></li>
-           {% if session.user %}
-           <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
-           <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-           <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-           {% else %}
-           <li><a href="{{ url_for('login') }}">Log In</a></li>
-           <li><a href="{{ url_for('register') }}">Register</a></li>
-           {% endif %}
-           <li><a href="#"><i class="fas fa-search"></i></a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- mobile sidenav -->
-
-  <ul class="sidenav" id="mobile-demo">
-        <li><h4 class="center-align red lighten-1">We Bake</h4></li>
-        <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
-        <li><a href="#">Recipes</a></li>
-        <li><a href="#"><i class="fas fa-search"></i></a></li>
-        {% if session.user %}
+      <div class="nav-wrapper navbase">
+        <a href="{{ url_for('home') }}" class="brand-logo">We Bake</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="{{ url_for('get_recipes') }}">Recipes</a></li>
+          {% if session.user %}
+          <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
           <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
           <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-        {% else %}
+          {% else %}
           <li><a href="{{ url_for('login') }}">Log In</a></li>
           <li><a href="{{ url_for('register') }}">Register</a></li>
-        {% endif %}
-  </ul>
-          
-    </header>
-
-    <section>
-      <!-- flash messages -->
-      {% with messages = get_flashed_messages() %}
-          {% if messages %}
-              {% for message in messages %}
-                  <div class="row flashes">
-                      <h4 class="red lighten-4 center-align">{{ message }}</h4>
-                  </div>
-              {% endfor %}
           {% endif %}
-      {% endwith %}
+          <li><a href="#"><i class="fas fa-search"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- mobile sidenav -->
+
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="{{ url_for('home') }}">
+          <h4 class="center-align red lighten-1">We Bake</h4>
+        </a></li>
+
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('get_recipes') }}">Recipes</a></li>
+      <li><a href="#"><i class="fas fa-search"></i></a></li>
+      {% if session.user %}
+      <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+      <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+      {% else %}
+      <li><a href="{{ url_for('login') }}">Log In</a></li>
+      <li><a href="{{ url_for('register') }}">Register</a></li>
+      {% endif %}
+    </ul>
+
+  </header>
+
+  <section>
+    <!-- flash messages -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="row flashes">
+      <h4 class="red lighten-4 center-align">{{ message }}</h4>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
   </section>
 
   <main class="container">
-      {% block content %}
-      {% endblock %}
+    {% block content %}
+    {% endblock %}
   </main>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-    {% block scripts %}
-    {% endblock %}
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  {% block scripts %}
+  {% endblock %}
 </body>
+
 </html>

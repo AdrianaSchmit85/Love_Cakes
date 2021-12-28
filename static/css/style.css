@@ -1,4 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital@1&family=Oswald:wght@500&display=swap');
+
+.body {
+    background-color: blue;
+    
+}
 .text-shadow {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    
 }
 
+.navbase{
+    font-size: 30px;
+}
+
+
+
+
+#home_message {
+   
+
+font-family: "Oswald";
+    text-align: center;
+    bottom: 470px;
+    right: 400px;
+    position: absolute;
+    color:white;
+    font-weight: 200;
+    
+  }
+
+  #home_message2 {
+    font-family: "Oswald";
+    width: 300px;
+    height: 300px;
+  
+ 
+    text-align: center;
+    bottom: 150px;
+    right: 500px;
+    position: absolute;
+    color:white;
+    font-weight: 100;
+  }
+
+  #home_button {
+ 
+  
+ 
+   
+    bottom: 150px;
+    right: 550px;
+    position: absolute;
+   
+  
+  }
+
+
+
+  #profile{
+   
+
+    font-family: "Oswald";
+        text-align: center;
+        bottom: 350px;
+        right: 500px;
+        position: absolute;
+        color:white;
+        font-weight: 200;
+        
+      }
+
+
+
+/*recipes----------------------------*/
+
+img {
+    height: 400px;
+    width: 300px;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+}
+
+#recipes-page .card .card-image div {
+    height: 300px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#ingredientes {
+    text-align: center;
+    padding-left: 40px;
+}
+
+#recipes_content {
+    text-align: center;
+    margin-top: 5px;
+}
+
+
+#recipes-page .col {
+    margin-bottom: 3em;
+    text-align: center;
+}
+
+#time {
+    padding-left: 20px;
+    margin-left: 10px;
+}
+
+#home_image {}

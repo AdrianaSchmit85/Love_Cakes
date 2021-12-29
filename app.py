@@ -75,7 +75,7 @@ def login():
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(request.form.get("username")))
+                    #flash("Welcome, {}".format(request.form.get("username")))
                     return redirect(url_for("profile", username=session["user"]))
             else:
                 # invalid password match
@@ -118,7 +118,7 @@ def add_recipe(id=None):
         image = saveLocalImage(request)
 
         recipe = {
-            "Name ": request.form.get("Name"),
+            "Name": request.form.get("Name"),
             "Prep_time": request.form.get("Prep_time"),
             "Cook_time": request.form.get("Cook_time"),
             "Total_time": request.form.get("Total_time"),
@@ -145,7 +145,7 @@ def add_recipe(id=None):
         if Recipe['created_by'] == session["user"] or Recipe['Added_by'] == session["user"]:
             return render_template("add_recipe.html", Recipe=Recipe)
 
-        flash("You can only edit your recepes")
+        flash("You can only edit your recipes")
         return redirect(url_for("get_recipes"))
 
     return render_template("add_recipe.html", Recipe=None)

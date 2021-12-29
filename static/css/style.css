@@ -3,74 +3,91 @@
 
 .body {
     background-color: blue;
-    
-}
-.text-shadow {
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-    
+
 }
 
-.navbase{
+.text-shadow {
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+
+}
+
+
+
+.navbase {
     font-size: 30px;
 }
 
 
+/*home---------------------------------------------*/
+
+.full_image {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    margin: 0 auto;
+    padding-top: 0;
+}
 
 
 #home_message {
-   
 
-font-family: "Oswald";
-    text-align: center;
-    bottom: 470px;
-    right: 400px;
-    position: absolute;
-    color:white;
-    font-weight: 200;
-    
-  }
-
-  #home_message2 {
     font-family: "Oswald";
-    width: 300px;
-    height: 300px;
-  
- 
     text-align: center;
-    bottom: 150px;
+    bottom: 60%;
+    right: 20%;
+    position: absolute;
+    color: white;
+    font-weight: 200;
+}
+
+#home_message h5 {
+    padding-top: 30px;
+}
+
+
+#home_button {
+    bottom: 20%;
+    right: 45%;
+    position: absolute;
+}
+
+/*profile---------------------------------------------*/
+
+#profile {
+    font-family: "Oswald";
+    letter-spacing: 2px;
+    text-align: center;
+    bottom: 350px;
     right: 500px;
     position: absolute;
-    color:white;
-    font-weight: 100;
-  }
+    color: white;
+    font-weight: 200;
+}
 
-  #home_button {
- 
-  
- 
-   
-    bottom: 150px;
+
+
+#cover-text {
+
+    font-family: Oswald;
+
+    text-align: center;
+
+    width: 180px;
+    height: 130px;
+
+
+
+    background-color: white;
+
+    bottom: 50px;
     right: 550px;
+
     position: absolute;
-   
-  
-  }
 
-
-
-  #profile{
-   
-
-    font-family: "Oswald";
-        text-align: center;
-        bottom: 350px;
-        right: 500px;
-        position: absolute;
-        color:white;
-        font-weight: 200;
-        
-      }
-
+}
 
 
 /*recipes----------------------------*/

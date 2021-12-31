@@ -1,51 +1,72 @@
 {% extends "base.html" %}
-
 {% block content %}
 
-  <div class="container"> 
-<div class="row" id="get_recipe">
-  {% for item in Recipe%}
-  <div class="col s12 m12 container">
-    <div class="card  green lighten-5" id="recipes_content">
-      {% if item.Image %}
-      <div class="card-image">
-        <img src="../static/media/{{ item.Image }}">
+<h4 class="light-red-text text-darken-4 center-align">All Recipes</h4>
+
+<div class="container">
+<div class="row">
+  <form action="{{ url_for('search') }}" method="post" class="col s12">
+    <div class="row valign-wrapper center-align">
+      <div class="input-field col s12 m12">
+        <i class="fas fa-search prefix light-blue-text text-darken-4"></i>
+        <input type="text" name="query" id="query" minlength="3" class="validate" required>
+        <label for="query">Search Recipes</label>
       </div>
-      {% endif %}
-      <div class="card-content">
-        <h5> {{ item.Name }}</h5>
-        <p>{{  item.Description }} </p>
-
-        <p>
-          {% if item.created_by %}
-          <em>By: {{ item.created_by }}</em>
-          {% else %}
-          <em>By: {{ item.Added_by }}</em>
-          {% endif %}
-        </p>
-
-
+      <div class="col s12 m4">
+        <a href="{{ url_for('get_recipes') }}" class=" waves-effect waves-light btn-small red btn text-shadow">Reset</a>
+        <button type="submit" class=" waves-effect waves-light btn-small green darken-1 btn text-shadow">
+          <i class="fas fa-search left"></i> Search
+        </button>
       </div>
-      <a class="waves-effect waves-light btn-small green" href="/recipe/{{ item._id }}">See Recipe</a>
-      {% if session["user"] %}
-      {% if item.created_by == session["user"] or item.Added_by == session["user"] %}
-      <a class="waves-effect waves-light btn-small" href="/edit-recipe/{{ item._id }}">Edit</a>
-      <button class="waves-effect waves-light btn-small red" onclick="deleteRecipe('{{ item._id }}')">Delete</button>
-      {% endif %}
+    </div>
+  </form>
+</div>
+</div> 
 
-      {% endif %}
+{% if Recipe|length > 0 %}
+<div class="container" style="padding-top: 0;">
+
+  <div class="row" id="get_recipe">
+    {% for item in Recipe%}
+    <div class="col s12 m12 container">
+      <div class="card  green lighten-5" id="recipes_content">
+        {% if item.Image %}
+        <div class="card-image">
+          <img src="../static/media/{{ item.Image }}">
+        </div>
+        {% endif %}
+        <div class="card-content">
+          <h5> {{ item.Name }}</h5>
+          <p>{{  item.Description }} </p>
+
+          <p>
+            {% if item.created_by %}
+            <em>By: {{ item.created_by }}</em>
+            {% else %}
+            <em>By: {{ item.Added_by }}</em>
+            {% endif %}
+          </p>
+
+
+        </div>
+        <a class="waves-effect waves-light btn-small green" href="/recipe/{{ item._id }}">See Recipe</a>
+        {% if session["user"] %}
+        {% if item.created_by == session["user"] or item.Added_by == session["user"] %}
+        <a class="waves-effect waves-light btn-small" href="/edit-recipe/{{ item._id }}">Edit</a>
+        <button class="waves-effect waves-light btn-small red" onclick="deleteRecipe('{{ item._id }}')">Delete</button>
+        {% endif %}
+
+        {% endif %}
+      </div>
     </div>
   </div>
 </div>
-</div>
 
+{% endfor %}
 
-<div>
-
-  {% endfor %}
-</div>
-
-
+{% else %}
+<h3 class="red-text text-darken-4 center-align">No Results Found</h3>
+{% endif %}
 
 {% endblock %}
 

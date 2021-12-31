@@ -1,3 +1,5 @@
+
+   
 import os
 
 from werkzeug.utils import secure_filename
@@ -36,6 +38,14 @@ def get_recipes():
 def home():
     # return redirect(url_for("home"))
     return render_template("home.html")
+
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    Recipe = list(mongo.db.Receipt.find({"$text": {"$search": query}}))
+
+    return render_template("recipes.html" , Recipe=Recipe)
 
 
 @app.route("/register", methods=["GET", "POST"])

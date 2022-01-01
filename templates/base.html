@@ -50,6 +50,7 @@
       <li><a href="{{ url_for('home') }}">Home</a></li>
       <li><a href="{{ url_for('get_recipes') }}">Recipes</a></li>
       {% if session.user %}
+      <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
       <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
       <li><a href="{{ url_for('logout') }}">Log Out</a></li>
       {% else %}
@@ -88,7 +89,7 @@
 
   <footer class="page-footer">
       <div class="container">
-      © 2021 Developed in 🇸🇪 with  ❤️ 
+      © 2021 Developed in  🇸🇪  with  ❤️ 
 
       <a class="grey-text text-lighten-4 right fontawsome" href="https://www.facebook.com/">  <i class="fab fa-facebook fa-2x"></i></a>
       <a class="grey-text text-lighten-4 right fontawsome" href="https://www.instagram.com/"><i class="fab fa-instagram-square fa-2x"></i></a>

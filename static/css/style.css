@@ -12,7 +12,6 @@
 }
 
 
-
 .navbase {
     font-size: 30px;
 }
@@ -43,6 +42,7 @@
     font-weight: 200;
 }
 
+
 #home_message h5 {
     padding-top: 30px;
 }
@@ -58,6 +58,7 @@
 
 #profile {
     font-family: "Oswald";
+
     letter-spacing: 2px;
     text-align: center;
     bottom: 40%;
@@ -68,11 +69,11 @@
 }
 
 
-
 #cover-text {
-background-color: white;
-color: black;
-height: 120px;
+    font-size: 20px;
+    background-color: white;
+    color: black;
+    height: 120px;
 }
 
 
@@ -83,8 +84,8 @@ img {
     width: 300px;
     background-position: center center;
     background-repeat: no-repeat;
-
 }
+
 
 #recipes-page .card .card-image div {
     height: 300px;
@@ -93,10 +94,12 @@ img {
     background-size: cover;
 }
 
+
 #ingredientes {
     text-align: center;
     padding-left: 40px;
 }
+
 
 #recipes_content {
     text-align: center;
@@ -109,13 +112,11 @@ img {
     text-align: center;
 }
 
+
 #time {
     padding-left: 20px;
     margin-left: 10px;
 }
-
-
-
 
 /*recipes----------------------------------*/
 
@@ -124,15 +125,58 @@ body {
     min-height: 100vh;
     flex-direction: column;
 }
+
 main {
     flex: 1 0 auto;
 }
 
 
+.fontawsome {
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
 
-.fontawsome{
-   padding-left: 10px;
-   margin-bottom:20px;
- 
+/*_______________________________________________________media screem*/
 
+@media only screen and (max-width: 800px) {
+
+    #profile {
+        left: 30%;
+        bottom: 40%;
+    }
+
+    #cover-text {
+        width: 90px;
+        height: 90px;
+        font-size: 10px;
+        margin-left: 30%;
+    }
+
+
+    #home_message {
+        bottom: 50%;
+        right: 0;
+    }
+
+
+    #home_button {
+        bottom: 40%;
+        position: absolute;
+        left: 30%;
+    }
+}
+
+
+
+@media only screen and (min-device-width : 1200px) and (max-device-width : 1366px) {
+
+    #home_message {
+        bottom: 65%;
+        right: 20%;
+    }
+
+    #home_button {
+        bottom: 40%;
+        left: 40%;
+    }
 }

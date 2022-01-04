@@ -138,7 +138,35 @@ main {
 
 /*_______________________________________________________media screem*/
 
-@media only screen and (max-width: 800px) {
+
+/*@supports (-webkit-touch-callout: none) {
+    #profile {
+        left: 30%;
+        bottom: 40%;
+    }
+
+    #cover-text {
+        width: 90px;
+        height: 90px;
+        font-size: 10px;
+        margin-left: 30%;
+    }
+
+
+    #home_message {
+        bottom: 50%;
+        right: 0;
+    }
+
+
+    #home_button {
+        bottom: 40%;
+        position: absolute;
+        left: 30%;
+    }
+} */
+
+@media only screen and (max-width: 768px) {
 
     #profile {
         left: 30%;
@@ -166,17 +194,38 @@ main {
     }
 }
 
-
-
-@media only screen and (min-device-width : 1200px) and (max-device-width : 1366px) {
-
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
     #home_message {
-        bottom: 65%;
-        right: 20%;
+        bottom: 60%;
+        right: 5%;
+        font-size: 80px;
     }
 
     #home_button {
         bottom: 40%;
+        position: absolute;
         left: 40%;
     }
+
+    #profile {
+        left: 30%;
+        bottom: 50%;
+
+    }
+
+    #profile h3 {
+        left: 30%;
+        bottom: 50%;
+        font-size: 70px;
+    }
+
+    #cover-text {
+        width: 120px;
+        height: 120px;
+        font-size: 15px;
+        margin-left: 30%;
+    }
+
 }
+
+@media only screen and (min-device-width: 1100px) and (max-device-width: 10366px) {}

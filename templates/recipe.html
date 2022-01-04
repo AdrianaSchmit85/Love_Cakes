@@ -2,79 +2,78 @@
 
 {% block content %}
 
-<div class="container"> 
-<div class="row" id="recipes-page">
+<div class="container">
+    <div class="row" id="recipes-page">
 
-  <div class="col s12 m12">
-    <div class="card green lighten-4">
-      <div class="card-content">
-        <h4> {{ Recipe.Name }}</h4>
-      </div>
+        <div class="col s12 m12">
+            <div class="card green lighten-4">
+                <div class="card-content">
+                    <h4> {{ Recipe.Name }}</h4>
+                </div>
 
-      {% if Recipe.Image %}
-      <div class="card-image">
-        <div style='background-image: url("../static/media/{{ Recipe.Image }}")'></div>
-      </div>
-      {% endif %}
+                {% if Recipe.Image %}
+                <div class="card-image">
+                    <div style='background-image: url("../static/media/{{ Recipe.Image }}")'></div>
+                </div>
+                {% endif %}
 
-      <div class="content">
+                <div class="content">
 
-        <p>{{ Recipe.Description }} </p>
-        <div class="row">
-          <div class="col s4">
-            <i class="fas fa-stopwatch"></i> Prep Time: {{ Recipe.Prep_time }}
-          </div>
-          <div class="col s4">
-            <i class="fas fa-stopwatch"></i> Cook Time: {{ Recipe.Cook_time }}
-          </div>
-          <div class="col s4">
-            <i class="fas fa-clock"></i> Total Time: {{ Recipe.Total_time }}
-          </div>
-        </div>
+                    <p>{{ Recipe.Description }} </p>
+                    <div class="row">
+                        <div class="col s4">
+                            <i class="fas fa-stopwatch"></i> Prep Time: {{ Recipe.Prep_time }}
+                        </div>
+                        <div class="col s4">
+                            <i class="fas fa-stopwatch"></i> Cook Time: {{ Recipe.Cook_time }}
+                        </div>
+                        <div class="col s4">
+                            <i class="fas fa-clock"></i> Total Time: {{ Recipe.Total_time }}
+                        </div>
+                    </div>
 
-      </div>
+                </div>
 
-      <div class="col s12 m12 ">
-        <div class="card green lighten-4" id="ingredientes">
-          <div class="card-content">
+                <div class="col s12 m12 ">
+                    <div class="card green lighten-4" id="ingredientes">
+                        <div class="card-content">
 
-            <div class="row ">
-              <div class="col s12 m4">
+                            <div class="row ">
+                                <div class="col s12 m4">
 
-                <h2>Ingredients: </h2>{{ Recipe.Ingredients | safe }}
+                                    <h2>Ingredients: </h2>{{ Recipe.Ingredients | safe }}
 
-              </div>
+                                </div>
 
 
 
-              <div class="col s12 offset-m1 m7">
+                                <div class="col s12 offset-m1 m7">
 
-                <h2>Instructions: </h2>{{ Recipe.Instructions | safe }}
+                                    <h2>Instructions: </h2>{{ Recipe.Instructions | safe }}
 
-              </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p>
+                            {% if Recipe.created_by %}
+                            <em>by: {{ Recipe.created_by }}</em>
+                            {% else %}
+                            <em>by: {{ Recipe.Added_by }}</em>
+                            {% endif %}
+                        </p>
+
+                        {% if session["user"] %}
+                        {% if Recipe.created_by == session["user"] or Recipe.Added_by == session["user"] %}
+                        <a class="waves-effect waves-light btn-small" href="/edit-recipe/{{ Recipe._id }}">Edit</a>
+                        <button class="waves-effect waves-light btn-small red" onclick="deleteRecipe('{{ Recipe._id }}')">Delete</button>
+                        {% endif %}
+                        {% endif %}
+                    </div>
+
+                </div>
             </div>
-          </div>
-          <p>
-            {% if Recipe.created_by %}
-            <em>by: {{ Recipe.created_by }}</em>
-            {% else %}
-            <em>by: {{ Recipe.Added_by }}</em>
-            {% endif %}
-          </p>
-
-          {% if session["user"] %}
-          {% if Recipe.created_by == session["user"] or Recipe.Added_by == session["user"] %}
-          <a class="waves-effect waves-light btn-small" href="/edit-recipe/{{ Recipe._id }}">Edit</a>
-          <button class="waves-effect waves-light btn-small red"
-            onclick="deleteRecipe('{{ Recipe._id }}')">Delete</button>
-          {% endif %}
-          {% endif %}
         </div>
-
-      </div>
     </div>
-  </div>
-</div>
 </div>
 
 <!-- </div>

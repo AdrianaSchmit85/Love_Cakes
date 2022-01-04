@@ -6,94 +6,94 @@
 
 {% block content %}
 
-    {% if Recipe %}
-    <h3 class="red-text text-darken-4 center-align">Edit Recipe</h3>
-    {% else %}
-    <h3 class="red-text text-darken-4 center-align">Add Recipe</h3>
-    {% endif %}
+{% if Recipe %}
+<h3 class="red-text text-darken-4 center-align">Edit Recipe</h3>
+{% else %}
+<h3 class="red-text text-darken-4 center-align">Add Recipe</h3>
+{% endif %}
 
-    <div class="container"> 
+<div class="container">
 
     <div class="row card-panel green lighten-5">
-        <form class="col s12"  method="POST" action="" id="submitRec" enctype="multipart/form-data">
-
-              <!-- Image -->
-              <div class="file-field input-field col s12">
-                 <div class="btn">
+        <form class="col s12" method="POST" id="submitRec" enctype="multipart/form-data">
+            <div class="file-field input-field col s12">
+                <div class="btn">
                     <span>File</span>
                     <input type="file" name="image">
-                 </div>
-                 <div class="file-path-wrapper">
-                    <input class="file-path validate" name="image"  type="text">
-                 </div>
-              </div>
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" name="image" type="text">
+                </div>
+            </div>
 
-                         <!-- Recipe Name -->
-           <div class="row">
-            <div class="input-field col s12">
-               <i class="material-icons prefix"></i>
-              <textarea id="Name" name="Name" class="materialize-textarea">
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix"></i>
+                    <textarea id="Name" name="Name" class="materialize-textarea">
                        {% if Recipe.Name %}{{ Recipe.Name }}{% endif %} 
               </textarea>
 
-               <label for="Name">Recipe Name</label>
+                    <label for="Name">Recipe Name</label>
 
-            </div> 
-              <!-- Description -->
-              <div class="row">
-                 <div class="input-field col s12">
-                    <i class="material-icons prefix"></i>
-                    <textarea id="Description" name="Description" class="materialize-textarea">
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix"></i>
+                        <textarea id="Description" name="Description" class="materialize-textarea">
                          {% if Recipe.Description %}{{ Recipe.Description }}{% endif %}
                     </textarea>
-                    <label for="Description">Description</label>
-                 </div>
-                 <!-- Cooking Time -->
-              </div>
-              <div class="input-field col s4">
-                 <i class="material-icons prefix"></i>
-                 <input id="Prep Time" name="Prep_time" type="text" class="validate"  value="{% if Recipe.Prep_time %}{{ Recipe.Prep_time }}{% endif %}">
-                 <label class="active" for="Prep Time">Prep Time</label>
-              </div>
-              <div class="input-field col s4">
-                 <i class="material-icons prefix"></i>
-                 <input id="Cook Time" name="Cook_time" type="text" class="validate"  value="{% if Recipe.Cook_time %}{{ Recipe.Cook_time }}{% endif %}">
-                 <label  class="active" for="Cook_time">Cook Time</label>
-              </div>
-              <div class="input-field col s4">
-                 <i class="material-icons prefix"></i>
-                 <label   class="active" for="Total_time">Total Time</label>
-                 <input id="Total Time" name="Total_time" type="text" class="validate"  value="{% if Recipe.Total_time %}{{ Recipe.Total_time }}{% endif %}">
-                
-              </div>
-              <!-- Ingredients -->
-              <div class="row">
-                 <label for="textarea1">Ingredients</label>
-                 <div class="input-field col s12">
-                    <div id="quillAreaIngredients"></div>
-                    <input id="Ingredients" name="Ingredients" type="hidden" value="{% if Recipe.Ingredients %}{{ Recipe.Ingredients }}{% endif %}">
-                 </div>
-              </div>
-              <!-- Instructions -->
-              <div class="row">
-                 <label for="textarea1">Instructions</label>
-                 <div class="input-field col s12">
-                    <div id="quillAreaInstructions"></div>
-                    <input id="Instructions" name="Instructions" type="hidden"  value="{% if Recipe.Instructions %}{{ Recipe.Instructions }}{% endif %}">
-                 </div>
-              </div>
-              <!-- submit button -->
-              <div class="row">
-                 <div class="col s12 center-align">
-                    <button type="submit" class="btn-large red darken-3 text-shadow">
-                    Save <i></i>
-                    </button>
-                 </div>
-              </div>
+                        <label for="Description">Description</label>
+                    </div>
+
+                </div>
+                <div class="input-field col s4">
+                    <i class="material-icons prefix"></i>
+                    <input id="Prep_time" name="Prep_time" type="text" class="validate" value="{% if Recipe.Prep_time %}{{ Recipe.Prep_time }}{% endif %}">
+                    <label class="active" for="Prep_time">Prep Time</label>
+                </div>
+                <div class="input-field col s4">
+                    <i class="material-icons prefix"></i>
+                    <input id="Cook_time" name="Cook_time" type="text" class="validate" value="{% if Recipe.Cook_time %}{{ Recipe.Cook_time }}{% endif %}">
+                    <label class="active" for="Cook_time">Cook Time</label>
+                </div>
+                <div class="input-field col s4">
+                    <i class="material-icons prefix"></i>
+                    <label class="active" for="Total_time">Total Time</label>
+                    <input id="Total_time" name="Total_time" type="text" class="validate" value="{% if Recipe.Total_time %}{{ Recipe.Total_time }}{% endif %}">
+
+                </div>
+
+                <div class="row">
+                    <label for="textarea1">Ingredients</label>
+                    <div class="input-field col s12">
+                        <div id="quillAreaIngredients"></div>
+                        <input id="Ingredients" name="Ingredients" type="hidden" value="{% if Recipe.Ingredients %}{{ Recipe.Ingredients }}{% endif %}">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <label for="textarea1">Instructions</label>
+                    <div class="input-field col s12">
+                        <div id="quillAreaInstructions"></div>
+                        <input id="Instructions" name="Instructions" type="hidden" value="{% if Recipe.Instructions %}{{ Recipe.Instructions }}{% endif %}">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <button type="submit" class="btn-large red darken-3 text-shadow">
+                            Save <i></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
         </form>
     </div>
 
-   </div>    
+</div>
 
 {% endblock %}
 
@@ -102,23 +102,23 @@
 
 <!-- Initialize Quill editor -->
 <script>
-  var ingredients = new Quill('#quillAreaIngredients', {
-    theme: 'snow'
-  });
+    var ingredients = new Quill('#quillAreaIngredients', {
+        theme: 'snow'
+    });
 
-  var instructions = new Quill('#quillAreaInstructions', {
-    theme: 'snow'
-  });
+    var instructions = new Quill('#quillAreaInstructions', {
+        theme: 'snow'
+    });
 
 
-  document.addEventListener('DOMContentLoaded', (event) => {
-    ingredients.root.innerHTML = document.getElementById('Ingredients').value;
-    instructions.root.innerHTML = document.getElementById('Instructions').value;
-  })
+    document.addEventListener('DOMContentLoaded', (event) => {
+        ingredients.root.innerHTML = document.getElementById('Ingredients').value;
+        instructions.root.innerHTML = document.getElementById('Instructions').value;
+    })
 
-  document.getElementById('submitRec').addEventListener('submit', (event) => {
-      document.getElementById('Ingredients').value = ingredients.root.innerHTML;
-      document.getElementById('Instructions').value = instructions.root.innerHTML;
-  });
+    document.getElementById('submitRec').addEventListener('submit', (event) => {
+        document.getElementById('Ingredients').value = ingredients.root.innerHTML;
+        document.getElementById('Instructions').value = instructions.root.innerHTML;
+    });
 </script>
 {% endblock %}

@@ -4,37 +4,26 @@
 
 <div id="home_image">
     <img src="{{ url_for('static', filename='css/images/cake6.jpg')}}" alt="homepage" style=" background-size: cover; background-repeat: no-repeat; background-position: center center; width: 100%; height: 100vh; position: relative;">
-  </div>
+</div>
 
 
-   <div class="row" id="profile">
-        <div class="col s12 m8 offset-m2">
-            <h3 class="center-align white-text text-darken-4">
-               Welcome {{ username }}
-            </h3>
-            <div id="cover-text">
-      
-                <p> <i class="fas fa-plus"></i></p>
-         
-                <a href="{{ url_for('add_recipe') }}">  <p style="color: black;"> Add your recipe manually</p> </a>
-               
-             </div> 
+<div class="row" id="profile">
+    <div class="col s12 m8 offset-m2">
+        <h3 class="center-align white-text text-darken-4">
+            Welcome {{ username }}
+        </h3>
+        <div id="cover-text">
+
+            <p> <i class="fas fa-plus"></i></p>
+
+            <a href="{{ url_for('add_recipe') }}">
+                <p style="color: black;"> Add your recipe manually</p>
+            </a>
+
         </div>
-    </div> 
+    </div>
+</div>
 
 
-
-
-
-
-
-
-    <!-- <div id="cover-text">
-      
-       <p> <i class="fas fa-plus"></i></p>
-
-       <h5> Add your recipe manually</h5>
-    </div> -->
-  
 
 {% endblock %}

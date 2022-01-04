@@ -1,108 +1,194 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Data Centric Development Milestone Project
 
-Welcome AdrianaSchmit85,
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## Online cookbook - Love Cake
+---
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
 
-## Gitpod Reminders
+[View the live project here.]( #) 
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+Online Cookbook Project Love Cake- Code Institute Milestone Project 3.
 
-`python3 -m http.server`
+Love Cakes is a website where users can browse for cake recipes. Users can create their own account and there add, delete or edit their own recipes.
 
-A blue button should appear to click: _Make Public_,
+![MockUp](static/css/images/LoveCake1.png)
 
-Another blue button should appear to click: _Open Browser_.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+## User Experience (UX)
+---
 
-A blue button should appear to click: _Make Public_,
 
-Another blue button should appear to click: _Open Browser_.
+#### As a user I would like to:
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+- I want to immediately to know what the site is about.
+- I want to easily navigate throughout the site.
+- I want to able to search for a recipe using a specific ingredient or name.
+- I want to able to create an account easily.
+- I want to be able to manage my own recipes by editing or deleting.
+- I want to be able to access the site from any kind of device.
 
-To log into the Heroku toolbelt CLI:
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+#### Website goals:
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+- Provide clarity with a layout that satisfy the user needs.
+- provide the possibilit of anyone user browse recipes without ewgister.
+- Provide the possibility of register and add , edit or delete their own recipes.
+- Provides a proper form where the user can download images and add all the text for the recipe.
+- Provide simplicity avoiding overload information  and excess of content links.
 
-------
+#### Design
 
-## Release History
+- Typography
+    - The main colours chosed for this project were "Oswaldo"and "Sans-serif"
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+- Imagery 
+     -  A  background hero image used for the home page and profile page. All the images of the recipes are added by the user via add recipe form.
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+## Features
+---
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+#### Existing Features
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+- Easy to navigate navbar.
+- Home index page with a big hero image and a link inviting to register.
+- Easy registration form.
+- Profile page with welcome plus username so the user knows he is logged in. Directly link to add a recipe.
+- Add recipe form with possibility to add images and format the recipe.
+- Buttons to delete and Edit recipes.
+- Search functionallity to allow user, registered or not, to search for specific recipes by name.
+- Responsive.
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+#### Features Left to Implement
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+- Create a better design.
+- Create pagination.
+- Add more information to the home page.
+- Add a shopping list inside the user profile.
+- Add catergories.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+## Technologies Used
 
 ---
 
-Happy coding!
+### Languages Used
+
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+- [CSS 3](https://en.wikipedia.org/wiki/CSS)
+- [JAVASCRIPT](https://pt.wikipedia.org/wiki/JavaScript) 
+- [PYTHON](https://www.python.org/)  
+
+### Frameworks, Libraries & Programs Used
+
+- [Materialize] (https://materializecss.com/)
+    - Grid system and pre made classes to allow formatation and responsiveness.
+- [MONGODB] (https://www.mongodb.com/)
+    - Used to store the database added by the user.
+- [FLASK] (https://pt.wikipedia.org/wiki/Flask_(framework_web))
+    - Used to connect to the database in mongodb.    
+- [jQuery](https://jquery.com/) 
+   - JQuery was used along with materialize.
+- [Quill](https://quilljs.com/) 
+   - Used the add recipe form.
+- [GoogleFonts](https://fonts.google.com/)   
+    - Google fonts was used to import "Oswald".
+- [FontAwsome](https://fontawesome.com/) 
+    - Font Awsome was used to add icons throughout the website.
+- [Git](https://git-scm.com/) 
+    - Git was used for version control by commiting  to and Pushing to GitHub.
+- [GitHub](https://github.com/)   
+    -  GitHub is being used to store the project.
+
+
+
+## Testing
+---
+
+The python code was validate by [PEP8](http://pep8online.com/) 
+Javascript code was validate by [JSHINT](https://jshint.com/)
+
+Manual testings and browser tests were conducted.
+    - Login and Register forms and functionallity working correctly.
+    - When user add a recipe in the add recipe form it pushes the recipe correctly to the recipes page.
+    - All the recipes has their own id and can be seen in a individual page.
+    - Only users can add recipes.
+    - Users can only edit or delete their own recipes.
+    - The search bar filters corretly the word input by the user, showing only recipes with the relevant content.
+    - In case nothing is found a message will be displayes. 
+    - The reset button return to the recipes page.
+    - Links throughtout the website working as should. 
+    - Website is responsive.
+
+
+### Testing User Stories from User Experience (UX) Section
+
+- I want to immediately to know what the site is about.
+    - Clear information in the home page.
+- I want to easily navigate throughout the site to find the recipes I am looking for.
+    - The website is very easy to navigate with not so much page and straightforward.
+- I want to able to search for a recipe using a specific ingredient or name.
+    - the recipes page contain a search bar allowing the user to find the specific recipe.
+- I want to able to create an account easily.
+    - the create accoun form is very simple an working as it should.
+- I want to be able to manage my own recipes by editing or deleting.
+    - As a user , a edit button and a delete button will show in your own recipes.
+- I want to be able to access the site from any kind of device.
+    - The website is responsive.
+
+
+## Deployment
+---
+
+The project was deployed to GitHub Pages using the following steps...
+
+1. Tell Heroku which applications are required to run by   `CLI: sudo pip3 freeze --local > requirements.txt `
+2. Create Procfile - ` echo web:python app.py>Procfile`
+3. Login to Heroku. 
+4. 
+
+
+
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/AdrianaSchmit/curly-queen)
+2. At the top of the Repository (not top of page), locate the "Settings" Button on the menu
+3. Scroll down the Settings page until you locate the "GitHub Pages" Section.
+4. Under "Source", click the dropdown called "None" and select "Master Branch".
+5. The page will automatically refresh.
+6. Scroll back down through the page to locate the now published site [link]( https://adrianaschmit.github.io/curly-queen/)  in the "GitHub Pages" section.
+
+#### Making a Local Clone
+
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/AdrianaSchmit/curly-queen).
+2. Under the repository name, by the left side of the green Gitpod button click in Code.
+3. To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
+4. Open Git Bash
+5. Change the current working directory to the location where you want the cloned directory to be made.
+6. Type git clone, and then paste the URL you copied in Step 3.
+7. Press Enter. Your local clone will be created.
+
+
+
+
+## Credits
+---
+
+
+#### Content
+
+-  The content was written by the developer.
+
+- [Materialize](https://materializecss.com/) were used throughout the project.
+
+- The text for the Deployment section was copied from the [CodeInstituteSampleRead.me](https://github.com/Code-Institute-Solutions/SampleREADME). 
+
+#### Media
+
+- The images in this website were copied from google images.
+
+#### Acknowledgements
+
+- .
+- Great thanks to all the tutors for all the help, and to the Student Care. 

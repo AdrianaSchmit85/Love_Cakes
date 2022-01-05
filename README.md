@@ -5,7 +5,7 @@
 ---
 
 
-[View the live project here.]( #) 
+[View the live project here.]( http://blooming-sea-03327.herokuapp.com/home) 
 
 Online Cookbook Project Love Cake- Code Institute Milestone Project 3.
 
@@ -145,35 +145,35 @@ Manual testings and browser tests were conducted.
 
 The project was deployed to GitHub Pages using the following steps...
 
-1. Tell Heroku which applications are required to run by   `CLI: sudo pip3 freeze --local > requirements.txt `
+1. Tell Heroku which applications are required to run by adding ` pip3 freeze --local > requirements.txt ` to CLI
 2. Create Procfile - ` echo web:python app.py>Procfile`
 3. Login to Heroku. 
-4. 
+4.  Once logged in on your dashboard, we can click to `Create a New App`
+5. Connect GitHub repository to Heroku.
+6. Click on 'Reveal Config Vars', and tell Heroku which variables are required.
+7. From the deploy section click `Deploy Branch`
+8. Click `View`
 
+Github pages.
 
-
-1. Log in to GitHub and locate the [GitHub Repository](https://github.com/AdrianaSchmit/curly-queen)
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/AdrianaSchmit85/Love_cakes)
 2. At the top of the Repository (not top of page), locate the "Settings" Button on the menu
 3. Scroll down the Settings page until you locate the "GitHub Pages" Section.
 4. Under "Source", click the dropdown called "None" and select "Master Branch".
 5. The page will automatically refresh.
-6. Scroll back down through the page to locate the now published site [link]( https://adrianaschmit.github.io/curly-queen/)  in the "GitHub Pages" section.
+6. Scroll back down through the page to locate the now published site [link]( http://blooming-sea-03327.herokuapp.com/home)  in the "GitHub Pages" section.
 
 #### Making a Local Clone
 
-1. Log in to GitHub and locate the [GitHub Repository](https://github.com/AdrianaSchmit/curly-queen).
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/AdrianaSchmit85/Love_cakes).
 2. Under the repository name, by the left side of the green Gitpod button click in Code.
 3. To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
 4. Open Git Bash
 5. Change the current working directory to the location where you want the cloned directory to be made.
 6. Type git clone, and then paste the URL you copied in Step 3.
 7. Press Enter. Your local clone will be created.
-
-
-
-
-## Credits
----
+8. Click `Deploy Branch`
+9. Click `View` to launch your new app.
 
 
 #### Content
@@ -184,11 +184,12 @@ The project was deployed to GitHub Pages using the following steps...
 
 - The text for the Deployment section was copied from the [CodeInstituteSampleRead.me](https://github.com/Code-Institute-Solutions/SampleREADME). 
 
+
+
 #### Media
 
 - The images in this website were copied from google images.
 
 #### Acknowledgements
 
-- .
 - Great thanks to all the tutors for all the help, and to the Student Care. 

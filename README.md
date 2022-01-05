@@ -108,10 +108,10 @@ Love Cakes is a website where users can browse for cake recipes. Users can creat
 ## Testing
 ---
 
-The python code was validate by [PEP8](http://pep8online.com/) 
-Javascript code was validate by [JSHINT](https://jshint.com/)
+- The python code was validate by [PEP8](http://pep8online.com/) 
+- Javascript code was validate by [JSHINT](https://jshint.com/)
 
-Manual testings and browser tests were conducted.
+- Manual testings and browser tests were conducted.
     - Login and Register forms and functionallity working correctly.
     - When user add a recipe in the add recipe form it pushes the recipe correctly to the recipes page.
     - All the recipes has their own id and can be seen in a individual page.
